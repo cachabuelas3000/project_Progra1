@@ -2,7 +2,7 @@ package co.edu.uptc.Orders.model;
 
 import javax.swing.JOptionPane;
 
-public class Order {
+public abstract class Order {
 
     protected int numberOfOrders;
     protected String customerName;
@@ -12,7 +12,7 @@ public class Order {
     protected String paymentMethod;
 
 
-    public Order(int numberOfOrders, String customerName, String productName, int quantity, double price, String paymentMethod) {
+    protected Order(int numberOfOrders, String customerName, String productName, int quantity, double price, String paymentMethod) {
         this.numberOfOrders = numberOfOrders;
         this.customerName = customerName;
         this.productName = productName;
@@ -31,8 +31,6 @@ public class Order {
     }
 
 
-    public double calculateTotalPrice() {
-        return quantity * price;
-    }
+    public abstract double calculateTotalPrice();
 
 }
