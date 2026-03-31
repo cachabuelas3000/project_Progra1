@@ -6,7 +6,13 @@ import co.edu.uptc.Orders.model.*;
 
 public class App {
 
+<<<<<<< Updated upstream
     static ArrayList<Order> orders = new ArrayList<>();
+=======
+        OrderByApp order1 = new OrderByApp(1, "Juan Perez", "Pizza", 2, 15.99, "Tarjeta de Crédito", "Rappi", "juan123");
+        order1.displayOrderDetails();
+        order1.calculateTotalPrice();
+>>>>>>> Stashed changes
 
     public static void main(String[] args) {
 
