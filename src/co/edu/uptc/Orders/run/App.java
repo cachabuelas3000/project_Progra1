@@ -6,16 +6,40 @@ import co.edu.uptc.Orders.model.*;
 
 public class App {
 
-<<<<<<< Updated upstream
     static ArrayList<Order> orders = new ArrayList<>();
-=======
-        OrderByApp order1 = new OrderByApp(1, "Juan Perez", "Pizza", 2, 15.99, "Tarjeta de Crédito", "Rappi", "juan123");
-        order1.displayOrderDetails();
-        order1.calculateTotalPrice();
->>>>>>> Stashed changes
 
     public static void main(String[] args) {
 
+        // PRUEBA OrderByApp
+        OrderByApp orderApp = new OrderByApp(
+                1,                          // numberOfOrders
+                "Juan Pérez",               // customerName
+                "Pizza Mediana",            // productName
+                2,                          // quantity
+                25000,                      // price
+                "Tarjeta de Crédito",       // paymentMethod
+                "Rappi",                    // appName
+                "USER123456"                // userAppId
+        );
+        
+        orderApp.displayOrderDetails();
+        orderApp.calculateTotalPrice();
+        
+        // PRUEBA OrderBySocialWeb
+        OrderBySocialWeb orderWeb = new OrderBySocialWeb(
+                2,                          // numberOfOrders
+                "María García",             // customerName
+                "Hamburguesa Doble",        // productName
+                3,                          // quantity
+                18000,                      // price
+                "Transferencia"             // paymentMethod
+        );
+        
+        orderWeb.displayOrderDetails();
+        orderWeb.calculateTotalPrice();
+
+        // RESTO DEL CÓDIGO COMENTADO
+        /*
         int option = 0;
 
         do {
@@ -54,6 +78,7 @@ public class App {
             }
 
         } while (option != 5);
+        */
     }
 
     //  CREAR ORDEN
@@ -83,9 +108,9 @@ public class App {
                 JOptionPane.showInputDialog("Banco:")
         );
 
-        Order order = new OrderByApp(id, name, product, quantity, price, "Tarjeta", delivery, payment);
+        //Order order = new OrderByApp(id, name, product, quantity, price, "Tarjeta", delivery, payment);
 
-        orders.add(order);
+        //orders.add(order);
 
         JOptionPane.showMessageDialog(null, "Orden creada correctamente");
     }
@@ -98,7 +123,7 @@ public class App {
         for (Order o : orders) {
            if (o.getNumberOfOrders() == id){
                 o.displayOrderDetails();
-                JOptionPane.showMessageDialog(null, "Total: $" + o.calculateTotalPrice());
+                //JOptionPane.showMessageDialog(null, "Total: $" + o.calculateTotalPrice());
                 return;
             }
         }

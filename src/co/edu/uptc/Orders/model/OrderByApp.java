@@ -12,12 +12,6 @@ public class OrderByApp extends Order {
     private String detalles;
     //preguntar si puedo agregar un jComboBox con la calificación del cliente 
 
-<<<<<<< Updated upstream
-   public OrderByApp(int numberOfOrders, String customerName, String productName,
-                  int quantity, double price, String paymentMethod,
-                  Delivery delivery, PaymentDetail paymentDetail) {
-=======
-
 
     public OrderByApp(int numberOfOrders, String customerName, String productName, int quantity, double price, String paymentMethod, String appName, String userAppId) {
         super(numberOfOrders, customerName, productName, quantity, price, paymentMethod);
@@ -25,12 +19,9 @@ public class OrderByApp extends Order {
         this.userAppId = userAppId;
         this.deliveryTime = deliveryTime;
         this.deliveryAddress = deliveryAddress;
-
-    }
->>>>>>> Stashed changes
-
-    super(numberOfOrders, customerName, productName, quantity, price, paymentMethod, delivery, paymentDetail);
 }
+
+    //método para mostrar información
     @Override
     public void displayOrderDetails() {
         // Contenedor para guardar la selección del ComboBox
@@ -74,7 +65,7 @@ public class OrderByApp extends Order {
         // Obtener el ID de usuario
         String userAppId = JOptionPane.showInputDialog("Ingresar ID de usuario de la app:");
         
-        // Mostrar todos los detalles en un solo mensaje
+        // preparo los detalles para mostrar en el mensaje final
         detalles = "Numero de Orden: " + numberOfOrders + "\nNombre del Cliente: " + customerName 
                 + "\nProducto: " + productName + "\nCantidad: " + quantity + "\nPrecio: $" + price 
                 + "\nMetodo de Pago: " + paymentMethod + "\nAplicación: " + selectedApp[0] 
