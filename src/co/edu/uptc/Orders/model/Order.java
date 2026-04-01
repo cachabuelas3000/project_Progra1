@@ -1,83 +1,65 @@
 package co.edu.uptc.Orders.model;
 
-import javax.swing.JOptionPane;
-
+// Clase padre Pedido
 public abstract class Order {
 
-    protected int numberOfOrders;
     protected String customerName;
-    protected String productName;
-    protected int quantity;
-    protected double price;
-    protected String paymentMethod;
+    protected String customerCC;
 
-    protected Order(int numberOfOrders, String customerName, String productName, int quantity, double price,
-            String paymentMethod) {
-        this.numberOfOrders = ++numberOfOrders;
+    protected String food;
+    protected int qtyFood;
+    protected int foodPrice;
+
+    protected String drink;
+    protected int qtyDrink;
+    protected int drinkPrice;
+
+    protected int total;
+
+    protected String deliveryType;
+    protected String deliveryAddress;
+    protected String deliveryZone;
+
+    protected Delivery deliveryAssigned;
+    protected PaymentDetail payment;
+
+    protected Order(String customerName, String customerCC,
+                    String food, int qtyFood, int foodPrice,
+                    String drink, int qtyDrink, int drinkPrice,
+                    int total,
+                    String deliveryType, String deliveryAddress, String deliveryZone,
+                    Delivery deliveryAssigned, PaymentDetail payment) {
+
         this.customerName = customerName;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.price = price;
-        this.paymentMethod = paymentMethod;
+        this.customerCC = customerCC;
+
+        this.food = food;
+        this.qtyFood = qtyFood;
+        this.foodPrice = foodPrice;
+
+        this.drink = drink;
+        this.qtyDrink = qtyDrink;
+        this.drinkPrice = drinkPrice;
+
+        this.total = total;
+
+        this.deliveryType = deliveryType;
+        this.deliveryAddress = deliveryAddress;
+        this.deliveryZone = deliveryZone;
+        this.deliveryAssigned = deliveryAssigned;
+        this.payment = payment;
     }
 
-    // Método para mostrar los detalles de la orden
-    public void displayOrderDetails() {
-        JOptionPane.showMessageDialog(null, "Numero de Orden: " + numberOfOrders + "\nNombre del Cliente: "
-                + customerName + "\nProducto: " + productName + "\nCantidad: " + quantity + "\nPrecio: $" + price
-                + "\nMetodo de Pago: "
-                + paymentMethod);
-    }
+    public abstract void displayOrderDetails();
 
-    // Método para calcular el precio total de la orden
-    public abstract void calculateTotalPrice();
-
-    public int getNumberOfOrders() {
-        return numberOfOrders;
-    }
-
-    public void setNumberOfOrders(int numberOfOrders) {
-        this.numberOfOrders = numberOfOrders;
-    }
-
-    public String getCustomerName() {
-        return customerName;
+    public int calculateTotalPrice() {
+        return total;
     }
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
+    public String getCustomerCC() { return customerCC; }
+    public String getCustomerName() { return customerName; }
 }

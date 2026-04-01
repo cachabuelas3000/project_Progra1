@@ -1,25 +1,31 @@
 package co.edu.uptc.Orders.model;
 
+// Clase asociada por composición dentro de Order
 public class PaymentDetail {
-        private String cardNumber;
-    private String cardHolder;
-    private String expirationDate;
-    private String cvv;
-    private String bank;
+    private String method; // método de pago
+    private String cardNumber; // opcional si es tarjeta
+    private String bank;       // opcional
 
-    public PaymentDetail(String cardNumber, String cardHolder,
-                         String expirationDate, String cvv, String bank) {
-
+    public PaymentDetail(String method, String cardNumber, String bank) {
+        this.method = method;
         this.cardNumber = cardNumber;
-        this.cardHolder = cardHolder;
-        this.expirationDate = expirationDate;
-        this.cvv = cvv;
         this.bank = bank;
     }
 
-    public String getCardHolder() {
-        return cardHolder;
-    }
+    public String getMethod() { return method; }
+    public String getCardNumber() { return cardNumber; }
+    public String getBank() { return bank; }
 
-    
+    public void setMethod(String method) { this.method = method; }
+    public void setCardNumber(String cardNumber) { this.cardNumber = cardNumber; }
+    public void setBank(String bank) { this.bank = bank; }
+
+    @Override
+    public String toString() {
+        return "PaymentDetail{" +
+                "method='" + method + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", bank='" + bank + '\'' +
+                '}';
+    }
 }
